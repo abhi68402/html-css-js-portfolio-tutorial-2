@@ -36,3 +36,19 @@ window.addEventListener('scroll', () => {
 
   skillLevels.forEach(skill => observer.observe(skill));
 </script>
+// Animate Skills on Scroll
+const skillCards = document.querySelectorAll('.skill-card');
+const skillLevels = document.querySelectorAll('.skill-level');
+
+function animateSkills() {
+  skillCards.forEach((card, i) => {
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) {
+      card.classList.add('show');
+      skillLevels[i].style.width = skillLevels[i].getAttribute('data-level');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateSkills);
+window.addEventListener('load', animateSkills);

@@ -509,14 +509,3 @@ footer p {
   border-radius: 4px;
   transition: width 1.5s ease-in-out;
 }
-/* Remove default margin and padding */
-#skills, #contact {
-  margin: 0;
-  padding: 0;
-}
-
-/* Ensure no margin collapse */
-#skills > *, #contact > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}

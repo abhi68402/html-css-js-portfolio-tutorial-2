@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <style>
-      /* General Section Padding */
-      section {
-        padding-top: 60px;
-        padding-bottom: 60px;
+      /* General Section Spacing */
+      body {
         margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      section {
+        padding: 60px 20px;
       }
 
       .section-padding {
@@ -20,49 +23,54 @@
         padding-bottom: 60px;
       }
 
-      /* Text Container */
+      /* Text containers */
       .text-container p {
         margin: 0;
       }
 
-      /* About / Projects / Skills Cards */
-      .about-containers,
+      /* About Section */
+      .about-details-container,
       .skills-container,
       .experience-details-container {
+        margin: 0 auto;
+      }
+
+      .about-containers {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
-        margin: 0 auto;
       }
 
       .details-container {
         margin: 0;
+      }
+
+      .about-details-container .details-container {
         padding: 30px;
         width: 250px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-radius: 10px;
-        background-color: #fff;
       }
 
-      .details-container img.icon {
+      .about-details-container .details-container img.icon {
         width: 50px;
         height: 50px;
         margin-bottom: 15px;
       }
 
-      .details-container h3,
-      .experience-sub-title,
-      .project-title {
+      .about-details-container .details-container h3 {
         font-size: 1.3rem;
       }
 
       /* Skills Section */
       .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
         max-width: 1000px;
         margin: 0 auto;
-        gap: 20px;
       }
 
       .skill-card {
@@ -70,12 +78,16 @@
         max-width: 220px;
         text-align: center;
         padding: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-radius: 10px;
-        background-color: #fff;
         opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.5s forwards;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .skill-card.show {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .skill-bar {
@@ -83,44 +95,68 @@
         height: 8px;
         border-radius: 4px;
         margin: 10px 0;
-        overflow: hidden;
       }
 
       .skill-level {
+        width: 0;
         height: 100%;
         background: #007bff;
         border-radius: 4px;
-        width: 0;
-        transition: width 2s ease-in-out;
+        transition: width 1.5s ease;
       }
 
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      /* Project Section */
+      .project-title {
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        margin: 10px 0;
       }
 
-      /* Arrow Icon */
+      .experience-details-container .about-containers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .experience-details-container .details-container {
+        flex: 1 1 300px;
+        max-width: 300px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 10px;
+      }
+
       .icon.arrow {
-        margin-top: 30px;
+        margin: 30px auto 0 auto;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
         cursor: pointer;
+      }
+
+      /* Contact Section */
+      .contact-info-upper-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .contact-info-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
       /* Responsive */
       @media screen and (max-width: 768px) {
         .about-containers,
         .skills-container,
-        .experience-details-container {
+        .experience-details-container .about-containers,
+        .contact-info-upper-container {
           flex-direction: column;
           align-items: center;
-        }
-        .details-container,
-        .skill-card {
-          width: 90%;
         }
       }
     </style>
@@ -149,8 +185,8 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#certifications" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">SkillSet</a></li>
+          <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
@@ -166,12 +202,8 @@
         <h1 class="title">Abhinav</h1>
         <p class="section__text__p2">Computer Science Engineer | AI/ML Enthusiast</p>
         <div class="btn-container">
-          <button class="btn btn-color-2" onclick="window.open('./assets/abhinav_resume_new.pdf')">
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+          <button class="btn btn-color-2" onclick="window.open('./assets/abhinav_resume_new.pdf')">Download CV</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
         </div>
         <div id="socials-container">
           <img src="./assets/linkedin.png" alt="LinkedIn" class="icon" onclick="location.href='https://www.linkedin.com/in/harshit-abhinav-29ba54232/'" />
@@ -181,13 +213,19 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding symmetric-container">
+    <section id="about" class="section-padding">
       <p class="section__text__p1" style="text-align:center;">Get To Know More</p>
       <h1 class="title" style="text-align:center;">About Me</h1>
       <div class="text-container" style="text-align:center; max-width:800px; margin:0 auto;">
-        <p>I’m a Computer Science grad passionate about AI/ML, IoT, and full-stack development. I’ve worked on projects ranging from deep learning models to IoT-based smart systems. Skilled in Python, TensorFlow, ReactJS, and databases, I enjoy solving real-world problems through technology and continuous learning.</p>
+        <p>
+          I’m a Computer Science grad passionate about AI/ML, IoT,
+          and full-stack development. I’ve worked on projects ranging from
+          deep learning models to IoT-based smart systems. Skilled in Python,
+          TensorFlow, ReactJS, and databases, I enjoy solving real-world
+          problems through technology and continuous learning.
+        </p>
       </div>
-      <div class="about-details-container" style="margin-top:30px;">
+      <div class="about-details-container" style="display:flex; justify-content:center; gap:40px; margin-top:30px;">
         <div class="about-containers">
           <div class="details-container">
             <img src="./assets/education.png" alt="Education icon" class="icon" />
@@ -211,22 +249,28 @@
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container color-container">
-            <img src="./assets/project-1.png" alt="EcoBin Project" class="project-img" />
-            <h2 class="experience-sub-title project-title">EcoBin – Smart Dustbins Dashboard</h2>
+            <div class="article-container">
+              <img src="./assets/project-1.png" alt="EcoBin Project" class="project-img" />
+            </div>
+            <h2 class="project-title">EcoBin – Smart Dustbins Dashboard</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/EcoBin'">Github</button>
             </div>
           </div>
           <div class="details-container color-container">
-            <img src="./assets/project-2.png" alt="NASA Project" class="project-img" />
-            <h2 class="experience-sub-title project-title">NASA-CMAPSS RUL Prediction</h2>
+            <div class="article-container">
+              <img src="./assets/project-2.png" alt="NASA Project" class="project-img" />
+            </div>
+            <h2 class="project-title">NASA-CMAPSS RUL Prediction</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/NASA-CMAPSS-RUL-Predictions'">Github</button>
             </div>
           </div>
           <div class="details-container color-container">
-            <img src="./assets/project-3.png" alt="Smart Home Project" class="project-img" />
-            <h2 class="experience-sub-title project-title">Smart Home Service Platform</h2>
+            <div class="article-container">
+              <img src="./assets/project-3.png" alt="Smart Home Project" class="project-img" />
+            </div>
+            <h2 class="project-title">Smart Home Service Platform</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/smart-home-service-platform'">Github</button>
             </div>
@@ -237,23 +281,54 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section-padding">
+    <section id="skills">
       <div class="section-header" style="text-align:center; margin-bottom:40px;">
         <p class="section__text__p1">Explore my</p>
         <h1 class="title">Skillset</h1>
       </div>
 
       <div class="skills-container">
-        <div class="skill-card"><h3>Python</h3><div class="skill-bar"><div class="skill-level" data-level="90%"></div></div><p>Advanced</p></div>
-        <div class="skill-card"><h3>Java, OOPs</h3><div class="skill-bar"><div class="skill-level" data-level="80%"></div></div><p>Intermediate</p></div>
-        <div class="skill-card"><h3>ReactJS, JavaScript</h3><div class="skill-bar"><div class="skill-level" data-level="80%"></div></div><p>Intermediate</p></div>
-        <div class="skill-card"><h3>Node.js / Express.js</h3><div class="skill-bar"><div class="skill-level" data-level="70%"></div></div><p>Basics</p></div>
-        <div class="skill-card"><h3>SQL / PostgreSQL / MongoDB</h3><div class="skill-bar"><div class="skill-level" data-level="75%"></div></div><p>Intermediate</p></div>
-        <div class="skill-card"><h3>HTML / CSS / SASS</h3><div class="skill-bar"><div class="skill-level" data-level="95%"></div></div><p>Advanced</p></div>
-        <div class="skill-card"><h3>Git & Version Control</h3><div class="skill-bar"><div class="skill-level" data-level="85%"></div></div><p>Intermediate</p></div>
-        <div class="skill-card"><h3>IoT & Embedded Systems</h3><div class="skill-bar"><div class="skill-level" data-level="70%"></div></div><p>Intermediate</p></div>
+        <div class="skill-card">
+          <h3>Python</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="90%"></div></div>
+          <p>Advanced</p>
+        </div>
+        <div class="skill-card">
+          <h3>Java, OOPs</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="80%"></div></div>
+          <p>Intermediate</p>
+        </div>
+        <div class="skill-card">
+          <h3>ReactJS, JavaScript</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="80%"></div></div>
+          <p>Intermediate</p>
+        </div>
+        <div class="skill-card">
+          <h3>Node.js / Express.js</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="75%"></div></div>
+          <p>Basics</p>
+        </div>
+        <div class="skill-card">
+          <h3>SQL / PostgreSQL / MongoDB</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="75%"></div></div>
+          <p>Intermediate</p>
+        </div>
+        <div class="skill-card">
+          <h3>HTML / CSS / SASS</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="90%"></div></div>
+          <p>Advanced</p>
+        </div>
+        <div class="skill-card">
+          <h3>Git & Version Control</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="80%"></div></div>
+          <p>Intermediate</p>
+        </div>
+        <div class="skill-card">
+          <h3>IoT & Embedded Systems</h3>
+          <div class="skill-bar"><div class="skill-level" data-level="70%"></div></div>
+          <p>Intermediate</p>
+        </div>
       </div>
-
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
     </section>
 
@@ -275,7 +350,7 @@
           <p><a href="https://github.com/abhi68402">GitHub</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/15407.png" alt="Phone icon" class="icon contact-icon" />
+          <img src="./assets/phone.png" alt="Phone icon" class="icon contact-icon" />
           <p><a href="tel:+916309315583">+91 6309315583</a></p>
         </div>
       </div>
@@ -287,8 +362,8 @@
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">SkillSet</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -297,26 +372,27 @@
     </footer>
 
     <script>
-      // Animate Skill Bars on Scroll
-      const skillLevels = document.querySelectorAll(".skill-level");
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if(entry.isIntersecting){
-              const level = entry.target.getAttribute("data-level");
-              entry.target.style.width = level;
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      skillLevels.forEach(skill => observer.observe(skill));
-
-      // Hamburger menu toggle
+      // Hamburger toggle
       function toggleMenu() {
-        document.querySelector(".menu-links").classList.toggle("open");
+        document.querySelector('.menu-links').classList.toggle('show');
       }
+
+      // Animate Skills on Scroll
+      const skillCards = document.querySelectorAll('.skill-card');
+      const skillLevels = document.querySelectorAll('.skill-level');
+
+      function animateSkills() {
+        skillCards.forEach((card, i) => {
+          const rect = card.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 100) {
+            card.classList.add('show');
+            skillLevels[i].style.width = skillLevels[i].getAttribute('data-level');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', animateSkills);
+      window.addEventListener('load', animateSkills);
     </script>
   </body>
 </html>

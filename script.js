@@ -16,16 +16,23 @@ window.addEventListener('scroll', () => {
   }
 });
 <script>
-  // Animate skill bars
-  window.addEventListener("DOMContentLoaded", () => {
-    const skillLevels = document.querySelectorAll(".skill-card .skill-level");
-    skillLevels.forEach(level => {
-      const width = level.getAttribute("data-level") || level.style.width;
-      level.style.width = "0"; // start from 0
-      setTimeout(() => {
-        level.style.transition = "width 1.2s ease-in-out";
-        level.style.width = width;
-      }, 100);
-    });
-  });
+  // Animate Skill Bars on scroll
+  const skillLevels = document.querySelectorAll(".skill-level");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skill = entry.target;
+          const level = skill.getAttribute("data-level");
+          skill.style.width = level;
+          skill.classList.add("animated"); // optional for CSS transition
+          observer.unobserve(skill); // stop observing after animation
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  skillLevels.forEach(skill => observer.observe(skill));
 </script>

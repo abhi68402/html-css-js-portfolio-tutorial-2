@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <style>
-      /* General section spacing */
+      /* General Section Padding */
       section {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -20,69 +20,94 @@
         padding-bottom: 60px;
       }
 
-      /* Text containers */
+      /* Text Container */
       .text-container p {
         margin: 0;
       }
 
-      /* About section */
-      .about-details-container,
+      /* About / Projects / Skills Cards */
+      .about-containers,
       .skills-container,
       .experience-details-container {
-        margin: 0 auto;
-      }
-
-      .about-containers {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
+        margin: 0 auto;
       }
 
       .details-container {
         margin: 0;
-      }
-
-      /* Skills section */
-      .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .skill-card {
-        flex: 1 1 220px;
-        max-width: 220px;
-        margin: 0 auto;
-      }
-
-      /* Arrow spacing */
-      .icon.arrow {
-        margin-top: 30px;
-        margin-bottom: 0;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        cursor: pointer;
-      }
-
-      /* About cards */
-      .about-details-container .details-container {
         padding: 30px;
         width: 250px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
+        background-color: #fff;
       }
 
-      .about-details-container .details-container img.icon {
+      .details-container img.icon {
         width: 50px;
         height: 50px;
         margin-bottom: 15px;
       }
 
-      .about-details-container .details-container h3 {
+      .details-container h3,
+      .experience-sub-title,
+      .project-title {
         font-size: 1.3rem;
+      }
+
+      /* Skills Section */
+      .skills-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        gap: 20px;
+      }
+
+      .skill-card {
+        flex: 1 1 220px;
+        max-width: 220px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #fff;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s forwards;
+      }
+
+      .skill-bar {
+        background: #ddd;
+        height: 8px;
+        border-radius: 4px;
+        margin: 10px 0;
+        overflow: hidden;
+      }
+
+      .skill-level {
+        height: 100%;
+        background: #007bff;
+        border-radius: 4px;
+        width: 0;
+        transition: width 2s ease-in-out;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Arrow Icon */
+      .icon.arrow {
+        margin-top: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
       }
 
       /* Responsive */
@@ -93,9 +118,9 @@
           flex-direction: column;
           align-items: center;
         }
-
-        .about-containers {
-          gap: 20px;
+        .details-container,
+        .skill-card {
+          width: 90%;
         }
       }
     </style>
@@ -108,7 +133,7 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#Skills">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -124,15 +149,15 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#certifications" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">SkillSet</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
     </nav>
 
     <!-- Profile Section -->
-    <section id="profile" style="padding-bottom:50px;">
+    <section id="profile">
       <div class="section__pic-container">
         <img src="./assets/profile-pic2.png" alt="Profile picture" />
       </div>
@@ -141,10 +166,7 @@
         <h1 class="title">Abhinav</h1>
         <p class="section__text__p2">Computer Science Engineer | AI/ML Enthusiast</p>
         <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/abhinav_resume_new.pdf')"
-          >
+          <button class="btn btn-color-2" onclick="window.open('./assets/abhinav_resume_new.pdf')">
             Download CV
           </button>
           <button class="btn btn-color-1" onclick="location.href='./#contact'">
@@ -152,18 +174,8 @@
           </button>
         </div>
         <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/harshit-abhinav-29ba54232/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/abhi68402'"
-          />
+          <img src="./assets/linkedin.png" alt="LinkedIn" class="icon" onclick="location.href='https://www.linkedin.com/in/harshit-abhinav-29ba54232/'" />
+          <img src="./assets/github.png" alt="Github" class="icon" onclick="location.href='https://github.com/abhi68402'" />
         </div>
       </div>
     </section>
@@ -172,27 +184,16 @@
     <section id="about" class="section-padding symmetric-container">
       <p class="section__text__p1" style="text-align:center;">Get To Know More</p>
       <h1 class="title" style="text-align:center;">About Me</h1>
-
       <div class="text-container" style="text-align:center; max-width:800px; margin:0 auto;">
-        <p>
-          I’m a Computer Science grad passionate about AI/ML, IoT,
-          and full-stack development. I’ve worked on projects ranging from
-          deep learning models to IoT-based smart systems. Skilled in Python,
-          TensorFlow, ReactJS, and databases, I enjoy solving real-world
-          problems through technology and continuous learning.
-        </p>
+        <p>I’m a Computer Science grad passionate about AI/ML, IoT, and full-stack development. I’ve worked on projects ranging from deep learning models to IoT-based smart systems. Skilled in Python, TensorFlow, ReactJS, and databases, I enjoy solving real-world problems through technology and continuous learning.</p>
       </div>
-
-      <div class="about-details-container symmetric-container" style="display:flex; justify-content:center; gap:40px; margin-top:30px;">
+      <div class="about-details-container" style="margin-top:30px;">
         <div class="about-containers">
-          <!-- Education Box -->
           <div class="details-container">
             <img src="./assets/education.png" alt="Education icon" class="icon" />
             <h3>Education</h3>
             <p>B.Tech CSE, GITAM University (2022–Present)<br />GPA: 8.10/10</p>
           </div>
-
-          <!-- Experience Box -->
           <div class="details-container">
             <img src="./assets/experience.png" alt="Experience icon" class="icon" />
             <h3>Experience</h3>
@@ -208,29 +209,23 @@
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
-        <div class="about-containers" style="flex-wrap:wrap; gap:30px; justify-content:center;">
-          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
-            <div class="article-container">
-              <img src="./assets/project-1.png" alt="EcoBin Project" class="project-img" />
-            </div>
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <img src="./assets/project-1.png" alt="EcoBin Project" class="project-img" />
             <h2 class="experience-sub-title project-title">EcoBin – Smart Dustbins Dashboard</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/EcoBin'">Github</button>
             </div>
           </div>
-          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
-            <div class="article-container">
-              <img src="./assets/project-2.png" alt="NASA Project" class="project-img" />
-            </div>
+          <div class="details-container color-container">
+            <img src="./assets/project-2.png" alt="NASA Project" class="project-img" />
             <h2 class="experience-sub-title project-title">NASA-CMAPSS RUL Prediction</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/NASA-CMAPSS-RUL-Predictions'">Github</button>
             </div>
           </div>
-          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
-            <div class="article-container">
-              <img src="./assets/project-3.png" alt="Smart Home Project" class="project-img" />
-            </div>
+          <div class="details-container color-container">
+            <img src="./assets/project-3.png" alt="Smart Home Project" class="project-img" />
             <h2 class="experience-sub-title project-title">Smart Home Service Platform</h2>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/smart-home-service-platform'">Github</button>
@@ -242,100 +237,25 @@
     </section>
 
     <!-- Skills Section -->
-    <!-- Skills Section -->
-<section id="skills" class="section-padding">
-  <div class="section-header" style="text-align:center; margin-bottom:40px;">
-    <p class="section__text__p1">Explore my</p>
-    <h1 class="title">Skillset</h1>
-  </div>
-
-  <div class="skills-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1000px; margin:0 auto;">
-    
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>Python</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="90%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
+    <section id="skills" class="section-padding">
+      <div class="section-header" style="text-align:center; margin-bottom:40px;">
+        <p class="section__text__p1">Explore my</p>
+        <h1 class="title">Skillset</h1>
       </div>
-      <p>Advanced</p>
-    </div>
 
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>Java, OOPs</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
+      <div class="skills-container">
+        <div class="skill-card"><h3>Python</h3><div class="skill-bar"><div class="skill-level" data-level="90%"></div></div><p>Advanced</p></div>
+        <div class="skill-card"><h3>Java, OOPs</h3><div class="skill-bar"><div class="skill-level" data-level="80%"></div></div><p>Intermediate</p></div>
+        <div class="skill-card"><h3>ReactJS, JavaScript</h3><div class="skill-bar"><div class="skill-level" data-level="80%"></div></div><p>Intermediate</p></div>
+        <div class="skill-card"><h3>Node.js / Express.js</h3><div class="skill-bar"><div class="skill-level" data-level="70%"></div></div><p>Basics</p></div>
+        <div class="skill-card"><h3>SQL / PostgreSQL / MongoDB</h3><div class="skill-bar"><div class="skill-level" data-level="75%"></div></div><p>Intermediate</p></div>
+        <div class="skill-card"><h3>HTML / CSS / SASS</h3><div class="skill-bar"><div class="skill-level" data-level="95%"></div></div><p>Advanced</p></div>
+        <div class="skill-card"><h3>Git & Version Control</h3><div class="skill-bar"><div class="skill-level" data-level="85%"></div></div><p>Intermediate</p></div>
+        <div class="skill-card"><h3>IoT & Embedded Systems</h3><div class="skill-bar"><div class="skill-level" data-level="70%"></div></div><p>Intermediate</p></div>
       </div>
-      <p>Intermediate</p>
-    </div>
 
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>ReactJS, JavaScript</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Intermediate</p>
-    </div>
-
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>Node.js / Express.js</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="75%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Basics</p>
-    </div>
-
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>SQL / PostgreSQL / MongoDB</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="75%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Intermediate</p>
-    </div>
-
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>HTML / CSS / SASS</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="90%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Advanced</p>
-    </div>
-
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>Git & Version Control</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Intermediate</p>
-    </div>
-
-    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
-      <h3>IoT & Embedded Systems</h3>
-      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
-        <div class="skill-level" data-level="70%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
-      </div>
-      <p>Intermediate</p>
-    </div>
-
-  </div>
-
-  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
-
-  <!-- Skill bars animation script -->
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const skillLevels = document.querySelectorAll(".skill-level");
-      skillLevels.forEach(level => {
-        const targetWidth = level.getAttribute("data-level");
-        level.style.width = "0"; // start at 0
-        setTimeout(() => {
-          level.style.transition = "width 1.2s ease-in-out";
-          level.style.width = targetWidth;
-        }, 200);
-      });
-    });
-  </script>
-</section>
-
-
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    </section>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -355,7 +275,7 @@
           <p><a href="https://github.com/abhi68402">GitHub</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/phone.png" alt="Phone icon" class="icon contact-icon" />
+          <img src="./assets/15407.png" alt="Phone icon" class="icon contact-icon" />
           <p><a href="tel:+916309315583">+91 6309315583</a></p>
         </div>
       </div>
@@ -376,6 +296,27 @@
       <p>Copyright &#169; 2025 Gompa Harshit Abhinav. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // Animate Skill Bars on Scroll
+      const skillLevels = document.querySelectorAll(".skill-level");
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              const level = entry.target.getAttribute("data-level");
+              entry.target.style.width = level;
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      skillLevels.forEach(skill => observer.observe(skill));
+
+      // Hamburger menu toggle
+      function toggleMenu() {
+        document.querySelector(".menu-links").classList.toggle("open");
+      }
+    </script>
   </body>
 </html>

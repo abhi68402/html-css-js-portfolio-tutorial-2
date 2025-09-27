@@ -15,12 +15,13 @@
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
+
     <nav id="hamburger-nav">
       <div class="logo">Gompa Harshit Abhinav</div>
       <div class="hamburger-menu">
@@ -31,7 +32,7 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
@@ -82,17 +83,24 @@
       <div class="section-container">
         <div class="section__pic-container">
           <img
-            src="./assets/about-pic.png"
+            src="./assets/profile-pic2.jpg"
             alt="Profile picture"
             class="about-pic"
           />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
+            <!-- Education -->
             <div class="details-container">
               <img src="./assets/education.png" alt="Education icon" class="icon" />
               <h3>Education</h3>
               <p>B.Tech CSE, GITAM University (2022–Present)<br />GPA: 8.10/10</p>
+            </div>
+            <!-- Experience Box -->
+            <div class="details-container">
+              <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+              <h3>Experience</h3>
+              <p>2+ years <br />Frontend Development</p>
             </div>
           </div>
           <div class="text-container">
@@ -106,45 +114,14 @@
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#experience'" />
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#certifications'"
+      />
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience and certifications</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">AI/ML Intern – Intel</h2>
-            <div class="article-container">
-              <article>
-                <p>Developed lightweight image sharpening model using Knowledge Distillation (SwinIR → IMDN) on datasets like DIV2K and Unsplash, achieving SSIM > 0.90 and MOS ≥ 4.0/5.</p>
-              </article>
-              <article>
-                <p>Optimized student model for real-time use (30–60 fps, 1080p), reducing size from 38MB → 1.8MB using TensorFlow & PyTorch.</p>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Software Engineering Intern – SmartKnower</h2>
-            <div class="article-container">
-              <article>
-                <p>Built a CNN model on MNIST achieving 95% accuracy after preprocessing & optimization.</p>
-              </article>
-              <article>
-                <p>Led a team of 5, gaining experience in Python, TensorFlow/Keras, and deep learning.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#projects'" />
-    </section>
-
-    <!-- Projects Section -->
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
@@ -182,9 +159,120 @@
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#contact'" />
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    <section id="skills" class="section-padding">
+  <div class="section-header">
+    <p class="section__text__p1">What I Can Do</p>
+    <h1 class="title">Skillset</h1>
+  </div>
+  
+  <div class="skills-container">
+    <div class="skill-card">
+      <h3>Python</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="90%"></div>
+      </div>
+      <p>Advanced</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Java, OOPs</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="80%"></div>
+      </div>
+      <p>Intermediate</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>ReactJS, JavaScript</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="80%"></div>
+      </div>
+      <p>Intermediate</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Node.js / Express.js</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="75%"></div>
+      </div>
+      <p>Basics</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>SQL / PostgreSQL / MongoDB</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="75%"></div>
+      </div>
+      <p>Intermediate</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>HTML / CSS / SASS</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="90%"></div>
+      </div>
+      <p>Advanced</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Git & Version Control</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="80%"></div>
+      </div>
+      <p>Intermediate</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>IoT & Embedded Systems</h3>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="70%"></div>
+      </div>
+      <p>Intermediate</p>
+    </div>
+  </div>
+
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
+    onclick="location.href='./#projects'" />
+</section>
+
+
+
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <p class="section__text__p1">Professional</p>
+      <h1 class="title">Certifications</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <img src="./assets/certifications.png" alt="AWS icon" class="icon" />
+            <h2 class="experience-sub-title">AWS Cloud Practitioner</h2>
+          </div>
+          <div class="details-container color-container">
+            <img src="./assets/certifications.png" alt="Google icon" class="icon" />
+            <h2 class="experience-sub-title">Google Data Analytics</h2>
+          </div>
+          <div class="details-container color-container">
+            <img src="./assets/certifications.png" alt="CCNA icon" class="icon" />
+            <h2 class="experience-sub-title">CCNA Networking</h2>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
     </section>
+
+    
 
     <!-- Contact Section -->
     <section id="contact">
@@ -216,7 +304,7 @@
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>

@@ -7,6 +7,98 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* General section spacing */
+      section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        margin: 0;
+      }
+
+      .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      /* Text containers */
+      .text-container p {
+        margin: 0;
+      }
+
+      /* About section */
+      .about-details-container,
+      .skills-container,
+      .experience-details-container {
+        margin: 0 auto;
+      }
+
+      .about-containers {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .details-container {
+        margin: 0;
+      }
+
+      /* Skills section */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .skill-card {
+        flex: 1 1 220px;
+        max-width: 220px;
+        margin: 0 auto;
+      }
+
+      /* Arrow spacing */
+      .icon.arrow {
+        margin-top: 30px;
+        margin-bottom: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
+
+      /* About cards */
+      .about-details-container .details-container {
+        padding: 30px;
+        width: 250px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 10px;
+      }
+
+      .about-details-container .details-container img.icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+      }
+
+      .about-details-container .details-container h3 {
+        font-size: 1.3rem;
+      }
+
+      /* Responsive */
+      @media screen and (max-width: 768px) {
+        .about-containers,
+        .skills-container,
+        .experience-details-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .about-containers {
+          gap: 20px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -15,8 +107,8 @@
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#Skills">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -40,9 +132,9 @@
     </nav>
 
     <!-- Profile Section -->
-    <section id="profile">
+    <section id="profile" style="padding-bottom:50px;">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.jpg" alt="Profile picture" />
+        <img src="./assets/profile-pic2.png" alt="Profile picture" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
@@ -77,202 +169,173 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/profile-pic2.jpg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <!-- Education -->
-            <div class="details-container">
-              <img src="./assets/education.png" alt="Education icon" class="icon" />
-              <h3>Education</h3>
-              <p>B.Tech CSE, GITAM University (2022–Present)<br />GPA: 8.10/10</p>
-            </div>
-            <!-- Experience Box -->
-            <div class="details-container">
-              <img src="./assets/experience.png" alt="Experience icon" class="icon" />
-              <h3>Experience</h3>
-              <p>2+ years <br />Frontend Development</p>
-            </div>
+    <section id="about" class="section-padding symmetric-container">
+      <p class="section__text__p1" style="text-align:center;">Get To Know More</p>
+      <h1 class="title" style="text-align:center;">About Me</h1>
+
+      <div class="text-container" style="text-align:center; max-width:800px; margin:0 auto;">
+        <p>
+          I’m a Computer Science grad passionate about AI/ML, IoT,
+          and full-stack development. I’ve worked on projects ranging from
+          deep learning models to IoT-based smart systems. Skilled in Python,
+          TensorFlow, ReactJS, and databases, I enjoy solving real-world
+          problems through technology and continuous learning.
+        </p>
+      </div>
+
+      <div class="about-details-container symmetric-container" style="display:flex; justify-content:center; gap:40px; margin-top:30px;">
+        <div class="about-containers">
+          <!-- Education Box -->
+          <div class="details-container">
+            <img src="./assets/education.png" alt="Education icon" class="icon" />
+            <h3>Education</h3>
+            <p>B.Tech CSE, GITAM University (2022–Present)<br />GPA: 8.10/10</p>
           </div>
-          <div class="text-container">
-            <p>
-              I’m a Computer Science grad passionate about AI/ML, IoT,
-              and full-stack development. I’ve worked on projects ranging from
-              deep learning models to IoT-based smart systems. Skilled in Python,
-              TensorFlow, ReactJS, and databases, I enjoy solving real-world
-              problems through technology and continuous learning.
-            </p>
+
+          <!-- Experience Box -->
+          <div class="details-container">
+            <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+            <h3>Experience</h3>
+            <p>2+ years <br />Frontend Development</p>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#certifications'"
-      />
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#certifications'" />
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
+        <div class="about-containers" style="flex-wrap:wrap; gap:30px; justify-content:center;">
+          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
             <div class="article-container">
               <img src="./assets/project-1.png" alt="EcoBin Project" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">EcoBin – Smart Dustbins Dashboard</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/abhi68402/EcoBin'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/EcoBin'">Github</button>
             </div>
           </div>
-          <div class="details-container color-container">
+          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
             <div class="article-container">
               <img src="./assets/project-2.png" alt="NASA Project" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">NASA-CMAPSS RUL Prediction</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/abhi68402/NASA-CMAPSS-RUL-Predictions'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/NASA-CMAPSS-RUL-Predictions'">Github</button>
             </div>
           </div>
-          <div class="details-container color-container">
+          <div class="details-container color-container" style="flex:1 1 300px; max-width:300px;">
             <div class="article-container">
               <img src="./assets/project-3.png" alt="Smart Home Project" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">Smart Home Service Platform</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/abhi68402/smart-home-service-platform'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/abhi68402/smart-home-service-platform'">Github</button>
             </div>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    <section id="skills" class="section-padding">
-  <div class="section-header">
-    <p class="section__text__p1">What I Can Do</p>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#skills'" />
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Skills Section -->
+<section id="skills" class="section-padding">
+  <div class="section-header" style="text-align:center; margin-bottom:40px;">
+    <p class="section__text__p1">Explore my</p>
     <h1 class="title">Skillset</h1>
   </div>
-  
-  <div class="skills-container">
-    <div class="skill-card">
+
+  <div class="skills-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1000px; margin:0 auto;">
+    
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>Python</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="90%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="90%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Advanced</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>Java, OOPs</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="80%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Intermediate</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>ReactJS, JavaScript</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="80%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Intermediate</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>Node.js / Express.js</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="75%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="75%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Basics</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>SQL / PostgreSQL / MongoDB</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="75%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="75%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Intermediate</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>HTML / CSS / SASS</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="90%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="90%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Advanced</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>Git & Version Control</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="80%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="80%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Intermediate</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" style="flex: 1 1 220px; max-width:220px; text-align:center; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:10px;">
       <h3>IoT & Embedded Systems</h3>
-      <div class="skill-bar">
-        <div class="skill-level" data-level="70%"></div>
+      <div class="skill-bar" style="background:#ddd; height:10px; border-radius:5px; margin:10px 0;">
+        <div class="skill-level" data-level="70%" style="height:100%; background:#007bff; border-radius:5px; width:0;"></div>
       </div>
       <p>Intermediate</p>
     </div>
+
   </div>
 
-  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-    onclick="location.href='./#projects'" />
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+
+  <!-- Skill bars animation script -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const skillLevels = document.querySelectorAll(".skill-level");
+      skillLevels.forEach(level => {
+        const targetWidth = level.getAttribute("data-level");
+        level.style.width = "0"; // start at 0
+        setTimeout(() => {
+          level.style.transition = "width 1.2s ease-in-out";
+          level.style.width = targetWidth;
+        }, 200);
+      });
+    });
+  </script>
 </section>
 
 
-
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-      <p class="section__text__p1">Professional</p>
-      <h1 class="title">Certifications</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <img src="./assets/certifications.png" alt="AWS icon" class="icon" />
-            <h2 class="experience-sub-title">AWS Cloud Practitioner</h2>
-          </div>
-          <div class="details-container color-container">
-            <img src="./assets/certifications.png" alt="Google icon" class="icon" />
-            <h2 class="experience-sub-title">Google Data Analytics</h2>
-          </div>
-          <div class="details-container color-container">
-            <img src="./assets/certifications.png" alt="CCNA icon" class="icon" />
-            <h2 class="experience-sub-title">CCNA Networking</h2>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-
-    
 
     <!-- Contact Section -->
     <section id="contact">
